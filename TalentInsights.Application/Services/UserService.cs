@@ -28,4 +28,10 @@ public class UserService(Cache<UserDto> cache) : IUserService
 
         return ResponseHelper.Create(user);
     }
+
+    public GenericResponse<List<UserDto>> Get(int limit, int offset)
+    {
+        var users = cache.Get();
+        return ResponseHelper.Create(users);
+    }
 }

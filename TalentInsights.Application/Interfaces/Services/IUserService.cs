@@ -8,4 +8,6 @@ namespace TalentInsights.Application.Interfaces.Services;
 public interface IUserService
 {
     public GenericResponse<UserDto> Create(CreateUserRequest model);
+
+    public GenericResponse<List<UserDto>> Get(int limit, int offset);
 }
