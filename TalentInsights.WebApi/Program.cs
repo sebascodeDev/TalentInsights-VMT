@@ -2,6 +2,8 @@ using TalentInsights.Application.Interfaces.Services;
 using TalentInsights.Application.Models.DTOs;
 using TalentInsights.Application.Services;
 using TalentInsights.Shared;
+using Microsoft.EntityFrameworkCore;
+using TalentInsights.Domain.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Database
+builder.Services.AddDbContext<TalentInsights.Domain.Database.TalentDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // Services
 builder.Services.AddScoped<ICollaboratorService, CollaboratorService>();

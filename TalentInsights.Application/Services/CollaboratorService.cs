@@ -8,7 +8,7 @@ using TalentInsights.Shared.Helpers;
 
 namespace TalentInsights.Application.Services
 {
-    public class CollaboratorService(Cache<CollaboratorDto> cache) : ICollaboratorService
+    public class CollaboratorService(Cache<CollaboratorDto> cache ) : ICollaboratorService
     {
         public GenericResponse<CollaboratorDto> Create(CreateCollaboratorRequest model)
         {
